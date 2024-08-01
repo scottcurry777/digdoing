@@ -1,0 +1,450 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+// No Bootstrap CSS for DigDoing.com
+// @import '~bootstrap/scss/bootstrap';
+
+// Animations
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Main */
+
+html {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #d8d8d8;
+    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 300;
+    }
+
+    input,
+    select,
+    option {
+        background: #272727;
+        color: #d8d8d8;
+        font-size: 16px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+    }
+
+    header {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        background: #1a1a1a;
+        z-index: 9999;
+    }
+
+    #logo {
+        display: flex;
+        flex: 0 1 30px;
+        padding: 10px 15px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #search {
+        display: flex;
+        flex: 1 1 738px;
+        padding: 10px 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #user {
+        display: flex;
+        flex: 0 1 30px;
+        padding: 10px 15px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #main {
+        min-height: calc(100% - 180px);
+        background: #000000;
+        margin-top: 50px;
+        padding: 0 0 10px 0;
+        text-align: center;
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .loading-spinner {
+        position: fixed;
+        top: calc(50% - 30px);
+        z-index: 999999;
+        animation: pulse 750ms infinite;
+    }
+
+    .card-container {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: #1a1a1a;
+        background-size: cover;
+        background-position: center;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        flex: 0 1 718px;
+        height: 150px;
+    }
+
+    .card.card-small {
+        flex: 0 1 354px;
+    }
+
+    .card.link {
+        cursor: pointer;
+    }
+
+    .card.top {
+        justify-content: flex-start;
+    }
+
+    .card.middle {
+        justify-content: center;
+    }
+
+    .card.bottom {
+        justify-content: flex-end;
+    }
+
+    .card.left {
+        align-items: flex-start;
+    }
+
+    .card.center {
+        align-items: center;
+    }
+
+    .card.right {
+        align-items: flex-end;
+    }
+
+    .card-name {
+        color: #fff;
+        font-size: 1.5em;
+        text-shadow: -1px -1px 3px #000000, -1px 1px 3px #000000, 1px -1px 3px #000000, 1px 1px 3px #000000, -1px -1px 5px #000000, -1px 1px 5px #000000, 1px -1px 5px #000000, 1px 1px 5px #000000;
+    }
+
+    .card-tag {
+        height: 100%;
+        color: #fff;
+        font-size: 1em;
+        text-shadow: -1px -1px 3px #000000, -1px 1px 3px #000000, 1px -1px 3px #000000, 1px 1px 3px #000000, -1px -1px 5px #000000, -1px 1px 5px #000000, 1px -1px 5px #000000, 1px 1px 5px #000000;
+        margin-top: 5px;
+        overflow: hidden;
+    }
+
+    #different-location-header {
+        margin: 20px 0 10px 0;
+        font-size: 20px;
+        display: none;
+    }
+
+    #different-location-form {
+        margin-bottom: 20px;
+        display: none;
+    }
+
+    .form {
+        position: relative;
+        display: flex;
+        width: 100%;
+        max-width: 738px;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    select {
+        width: 100%;
+        max-width: 738px;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 0 20px;
+    }
+
+    select {
+        padding: 9px;
+    }
+
+    .search-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+
+        input[type=text],
+        input[type=email],
+        input[type=password],
+        select {
+            max-width: 698px;
+        }
+
+        .search-spinner {
+            display: none;
+            position: absolute;
+            bottom: 5px;
+            right: 25px;
+            z-index: 99;
+            animation: pulse 750ms infinite;
+        }
+    }
+
+    .input-suggest {
+        position: absolute;
+        top: 40px;
+        left: 20px;
+        width: calc(100% - 40px);
+        text-align: left;
+        border: none;
+        border-radius: 5px;
+        flex: 1 1 100%;
+        background: #1a1a1a;
+        z-index: 1000;
+    }
+
+    .input-suggest:hover {
+        cursor: pointer;
+    }
+
+    .button {
+        width: 150px;
+        height: 30px;
+        padding: 8px;
+        margin: 0 auto 30px;
+        border: 2px #a1a1a1 solid;
+        border-radius: 5px;
+        line-height: 30px;
+        position: relative;
+        color: #a1a1a1;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        cursor: pointer;
+    }
+
+    .button.button-blue {
+        background: -moz-linear-gradient(top, rgba(0, 0, 200, 1) 0%, rgba(55, 0, 255, 1) 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 200, 1) 0%, rgba(55, 0, 255, 1) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 200, 1) 0%, rgba(55, 0, 255, 1) 100%);
+        border: none;
+        padding: 10px;
+        color: #fff;
+    }
+
+    .button.button-small {
+        width: 125px;
+        height: 20px;
+        padding: 3px;
+        margin: 0 auto;
+        font-size: 0.8em;
+        line-height: 20px;
+    }
+
+    .button.button-small.button-blue {
+        padding: 5px;
+    }
+
+
+    nav {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        background: #1a1a1a;
+        text-align: center;
+        z-index: 9999;
+    }
+
+    .nav-container {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        max-width: 716px;
+        background: #1a1a1a;
+        text-align: center;
+    }
+
+    .nav-item {
+        flex: 0 1 30px;
+        padding: 10px 0;
+    }
+
+    footer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        height: 80px;
+        padding: 5px 15px;
+        text-align: center;
+        background: #1a1a1a;
+    }
+
+    #footer {
+        flex: 1 1 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+        .on-small-center-items {
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .on-small-center-text {
+            text-align: center !important;
+        }
+    }
+
+    /* Light Template */
+
+    &.light {
+        color: #1a1a1a;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 400;
+        }
+
+        input,
+        select,
+        option {
+            color: #1a1a1a;
+            background-color: #d8d8d8;
+        }
+
+        header {
+            background-color: #e5e5e5;
+        }
+
+        #main {
+            background: #ffffff;
+        }
+
+        .card {
+            background-color: #e5e5e5;
+        }
+
+        .card-name {
+            color: #000;
+            text-shadow: -1px -1px 3px #ffffff, -1px 1px 3px #ffffff, 1px -1px 3px #ffffff, 1px 1px 3px #ffffff, -1px -1px 5px #ffffff, -1px 1px 5px #ffffff, 1px -1px 5px #ffffff, 1px 1px 5px #ffffff;
+            font-weight: 600;
+        }
+
+        .card-tag {
+            color: #000;
+            text-shadow: -1px -1px 3px #ffffff, -1px 1px 3px #ffffff, 1px -1px 3px #ffffff, 1px 1px 3px #ffffff, -1px -1px 5px #ffffff, -1px 1px 5px #ffffff, 1px -1px 5px #ffffff, 1px 1px 5px #ffffff;
+            font-weight: 600;
+        }
+
+        .input-suggest {
+            background-color: #e5e5e5;
+        }
+
+        .button {
+            border: 2px #1a1a1a solid;
+            color: #1a1a1a;
+        }
+
+        nav {
+            background-color: #e5e5e5;
+        }
+
+        .nav-container {
+            background-color: #e5e5e5;
+        }
+
+        footer {
+            background-color: #e5e5e5;
+        }
+    }
+}
+
+
